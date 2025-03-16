@@ -1,0 +1,901 @@
+/* تنظیمات پایه */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* اطمینان از این که هیچ اسکرول افقی وجود ندارد */
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* جلوگیری از اسکرول افقی */
+    overflow-y: auto; /* فعال کردن اسکرول عمودی */
+    position: relative;
+    font-size: 16px;
+  }
+  
+  /* تنظیم تصاویر و ویدیوها */
+  img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* جلوگیری از تغییر ابعاد */
+    margin: 0 auto;
+  }
+  
+  /* فیکس کردن ویدیوها برای موبایل و جلوگیری از بهم ریختن */
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 56.25%; /* نسبت تصویر 16:9 */
+  }
+  
+  .video-container iframe, .video-container video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* تنظیمات برای موبایل */
+  @media screen and (max-width: 768px) {
+    body {
+      font-size: 14px; /* تغییر سایز فونت در موبایل */
+    }
+  
+    .container {
+      padding: 10px; /* فاصله مناسب برای محتوا */
+    }
+  
+    /* فیکس کردن تصاویر در موبایل */
+    img {
+      width: 100%;
+      height: auto;
+    }
+  
+    /* برای جلوگیری از بهم ریختن بخش‌های صفحه */
+    .text-content {
+      word-wrap: break-word; /* جلوگیری از شکستن غیرمنتظره کلمات */
+    }
+  
+    /* کاهش اندازه فضای اضافی */
+    .section {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    /* جلوگیری از ایجاد فضای اضافی سمت راست در موبایل */
+    .container {
+      width: 100%;
+      overflow: hidden;
+    }
+  
+    /* جلوگیری از تغییر اندازه بیش از حد ویدیوها و تصاویر */
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  
+/* تنظیمات پایه */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* جلوگیری از اسکرول افقی ولی نگه داشتن اسکرول عمودی */
+  html, body {
+    width: 100%;
+    min-height: 100vh; /* اطمینان از داشتن ارتفاع کافی */
+    overflow-x: hidden; /* جلوگیری از اسکرول افقی */
+    overflow-y: auto !important; /* اطمینان از فعال بودن اسکرول عمودی */
+    position: relative;
+  }
+  
+  /* تنظیم صحیح اندازه ویدیوها */
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .video-container iframe,
+  .video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+  
+  /* تنظیم نمایش صحیح در موبایل */
+  @media screen and (max-width: 768px) {
+    body {
+      font-size: 16px;
+      overflow-y: auto !important; /* اطمینان از فعال بودن اسکرول در موبایل */
+    }
+    .container {
+      padding: 10px;
+    }
+    .video-container {
+      padding-bottom: 56.25%; /* نسبت تصویر 16:9 */
+    }
+  }
+  
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#status {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* استفاده از Flexbox برای تنظیم چیدمان */
+.container {
+    display: flex;
+    flex-wrap: wrap;  /* اجازه به عناصر برای پیچیدن به خط بعدی */
+    justify-content: space-between;
+}
+
+/* استفاده از CSS Grid برای محتوای پیچیده‌تر */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  /* ساخت گرید واکنش‌گرا */
+    gap: 20px;  /* فاصله بین سلول‌های گرید */
+}
+
+/* نمایش برای دیوایس‌های موبایل */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;  /* تنظیم اندازه فونت برای موبایل */
+    }
+
+    .header {
+        flex-direction: column;  /* تغییر چیدمان هدر در موبایل */
+    }
+
+    .container {
+        width: 100%;  /* نمایش کامل محتوای سایت در موبایل */
+    }
+
+    .main-content {
+        padding: 10px;  /* فاصله کم‌تر برای نمایش بهتر */
+    }
+}
+
+/* نمایش برای دسکتاپ */
+@media screen and (min-width: 769px) {
+    body {
+        font-size: 16px;  /* تنظیم اندازه فونت برای دسکتاپ */
+    }
+
+    .header {
+        flex-direction: row;  /* چیدمان افقی برای هدر */
+    }
+
+    .container {
+        width: 80%;  /* محدود کردن عرض محتوا در دسکتاپ */
+    }
+}
+
+/* طراحی دکمه قطع و پخش صدا */
+.mute-button {
+    position: fixed;  /* دکمه در موقعیت ثابت قرار می‌گیرد */
+    bottom: 20px;  /* فاصله از پایین صفحه */
+    left: 20px;   /* فاصله از سمت چپ صفحه */
+    background-color: #ff4c4c;  /* رنگ پس‌زمینه */
+    color: white;  /* رنگ آیکون */
+    border: none;
+    border-radius: 50%;  /* دایره‌ای کردن دکمه */
+    width: 60px;  /* عرض دکمه */
+    height: 60px;  /* ارتفاع دکمه */
+    font-size: 28px;  /* اندازه آیکون */
+    display: flex;
+    justify-content: center;  /* مرکز چینش آیکون */
+    align-items: center;  /* مرکز چینش آیکون */
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);  /* سایه دکمه */
+    transition: background-color 0.3s ease, transform 0.3s ease;  /* افکت انیمیشن */
+}
+
+/* افکت هاور */
+.mute-button:hover {
+    background-color: #ff0000;  /* رنگ دکمه هنگام هاور */
+    transform: scale(1.1);  /* بزرگ شدن دکمه هنگام هاور */
+}
+
+/* افکت انیمیشن برای تغییر وضعیت */
+.mute-button:active {
+    transform: scale(0.95);  /* کوچک شدن دکمه هنگام فشردن */
+}
+
+/* طراحی آیکون */
+#icon {
+    font-size: 28px;  /* اندازه آیکون */
+}
+
+/* طراحی دکمه شبیه‌سازی موبایل */
+.mobile-button {
+    position: fixed;  /* دکمه در موقعیت ثابت قرار می‌گیرد */
+    bottom: 20px;  /* فاصله از پایین صفحه */
+    right: 20px;   /* فاصله از سمت راست صفحه */
+    background-color: #4caf50;  /* رنگ پس‌زمینه */
+    color: white;  /* رنگ آیکون */
+    border: none;
+    border-radius: 50%;  /* دایره‌ای کردن دکمه */
+    width: 60px;  /* عرض دکمه */
+    height: 60px;  /* ارتفاع دکمه */
+    font-size: 28px;  /* اندازه آیکون */
+    display: flex;
+    justify-content: center;  /* مرکز چینش آیکون */
+    align-items: center;  /* مرکز چینش آیکون */
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);  /* سایه دکمه */
+    transition: background-color 0.3s ease, transform 0.3s ease;  /* افکت انیمیشن */
+}
+
+/* افکت هاور برای دکمه موبایل */
+.mobile-button:hover {
+    background-color: #3e8e41;  /* رنگ دکمه هنگام هاور */
+    transform: scale(1.1);  /* بزرگ شدن دکمه هنگام هاور */
+}
+
+/* افکت انیمیشن برای تغییر وضعیت */
+.mobile-button:active {
+    transform: scale(0.95);  /* کوچک شدن دکمه هنگام فشردن */
+}
+
+/* طراحی آیکون */
+.mobile-button i {
+    font-size: 28px;  /* اندازه آیکون */
+}
+
+/* طراحی دکمه دایره‌ای در گوشه سایت */
+.mute-button {
+    position: fixed;  /* دکمه در موقعیت ثابت قرار می‌گیرد */
+    bottom: 20px;  /* فاصله از پایین صفحه */
+    right: 20px;   /* فاصله از سمت راست صفحه */
+    background-color: #ff4c4c;  /* رنگ پس‌زمینه */
+    color: white;  /* رنگ آیکون */
+    border: none;
+    border-radius: 50%;  /* دایره‌ای کردن دکمه */
+    width: 60px;  /* عرض دکمه */
+    height: 60px;  /* ارتفاع دکمه */
+    font-size: 28px;  /* اندازه آیکون */
+    display: flex;
+    justify-content: center;  /* مرکز چینش آیکون */
+    align-items: center;  /* مرکز چینش آیکون */
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);  /* سایه دکمه */
+    transition: background-color 0.3s ease, transform 0.3s ease;  /* افکت انیمیشن */
+}
+
+/* افکت هاور */
+.mute-button:hover {
+    background-color: #ff0000;  /* رنگ دکمه هنگام هاور */
+    transform: scale(1.1);  /* بزرگ شدن دکمه هنگام هاور */
+}
+
+/* افکت انیمیشن برای تغییر وضعیت */
+.mute-button:active {
+    transform: scale(0.95);  /* کوچک شدن دکمه هنگام فشردن */
+}
+
+/* طراحی آیکون */
+#icon {
+    font-size: 28px;  /* اندازه آیکون */
+}
+
+/* اضافه کردن انیمیشن وارد شدن به صفحه */
+@keyframes slideIn {
+    from {
+        transform: translateX(100px);  /* حرکت از راست */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);  /* قرار گرفتن در موقعیت اصلی */
+        opacity: 1;
+    }
+}
+
+/* اعمال انیمیشن برای دکمه */
+.mute-button {
+    animation: slideIn 0.5s ease-out;  /* انیمیشن وارد شدن */
+}
+
+.status {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 15px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: opacity 0.8s ease, transform 0.5s ease;
+    opacity: 1;
+    background-color: red; /* پیش‌فرض آفلاین */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* حالت آنلاین */
+.online {
+    background-color: green;
+}
+
+/* محو شدن */
+.hidden {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+}
+
+/* تنظیمات پایه */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* جلوگیری از اسکرول افقی ولی نگه داشتن اسکرول عمودی */
+  html, body {
+    width: 100%;
+    min-height: 100vh; /* اطمینان از داشتن ارتفاع کافی */
+    overflow-x: hidden; /* جلوگیری از اسکرول افقی */
+    overflow-y: auto !important; /* اطمینان از فعال بودن اسکرول عمودی */
+    position: relative;
+  }
+  
+  /* تنظیم صحیح اندازه ویدیوها */
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .video-container iframe,
+  .video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+  
+  /* تنظیم نمایش صحیح در موبایل */
+  @media screen and (max-width: 768px) {
+    body {
+      font-size: 16px;
+      overflow-y: auto !important; /* اطمینان از فعال بودن اسکرول در موبایل */
+    }
+    .container {
+      padding: 10px;
+    }
+    .video-container {
+      padding-bottom: 56.25%; /* نسبت تصویر 16:9 */
+    }
+  }
+  
+/* این CSS با Autoprefixer به طور خودکار پیشوندهای لازم را اضافه می‌کند */
+.container {
+    display: flex;
+    flex-direction: row;
+    -webkit-flex-direction: row; /* برای مرورگرهای قدیمی */
+}
+
+/* طراحی واکنش‌گرا */
+@media (max-width: 1200px) {
+    .container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 5px;
+    }
+
+    .column {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        font-size: 1.2em;
+    }
+
+    .nav-menu {
+        display: none; /* منوی ناوبری برای موبایل */
+    }
+}
+
+/* تنظیمات پایه */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* طراحی واکنش‌گرا */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* استفاده از Flexbox برای لایه‌بندی */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* تنظیمات برای دستگاه‌های مختلف */
+@media (max-width: 1200px) {
+    .column {
+        width: 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    .column {
+        width: 100%;
+    }
+}
+
+/* تصاویر واکنش‌گرا */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* فونت‌ها و اندازه‌ها در دستگاه‌های مختلف */
+h1 {
+    font-size: 2em;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+.low-bandwidth-mode img {
+    filter: blur(5px);
+}
+
+/* این بخش برای تنظیمات عمومی طراحی صفحه است */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.video-container {
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+.video-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.video-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+.video-description {
+    margin-top: 10px;
+    color: #555;
+    font-size: 14px;
+}
+
+/* بخش تنظیمات پروفایل (تصویر پروفایل و اطلاعات آن) */
+.profile-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+    justify-content: space-between; /* فاصله دادن بین پروفایل و دکمه سبسکرایب */
+}
+
+/* این بخش مربوط به طراحی تصویر پروفایل است */
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    margin-right: 2px; /* فاصله کم کردن بین تصویر پروفایل و اطلاعات */
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* فاصله کم کردن بین اطلاعات پروفایل و تعداد مشترکین */
+}
+
+.profile-info .name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.profile-info .sub-info {
+     margin-left: 5px; /* مقدار را کم کنید تا فاصله کاهش یابد */
+    font-size: 14px;
+    color: #777;
+}
+
+/* این بخش مربوط به دکمه اشتراک‌گذاری (سبسکرایب) است */
+.profile-btn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-btn:hover {
+    background-color: #b30000;
+}
+
+/* بخش مربوط به دکمه‌های تعامل با ویدیو (مانند لایک، گزارش، اشتراک‌گذاری) */
+.video-actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    align-items: center;
+    gap: 20px;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid #606060;
+    background-color: transparent;
+    border-radius: 5px;
+    color: #606060;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: #cc0000;
+    border-color: #cc0000;
+    color: white;
+}
+
+.action-btn.liked {
+    background-color: #cc0000;
+    border-color: #cc0000;
+    color: white;
+}
+
+.action-btn.subscribed {
+    background-color: #cc0000;
+    border-color: #cc0000;
+    color: white;
+}
+
+.report-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: transparent;
+    color: #606060;
+    border: 2px solid #606060;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.report-btn:hover {
+    background-color: transparent;
+    color: #cc0000;
+    border-color: #cc0000;
+}
+
+.report-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #606060;
+}
+
+.actions-left {
+    display: flex;
+    align-items: center;
+}
+
+.actions-right {
+    display: flex;
+    align-items: center;
+}
+
+.actions-right .action-btn, .actions-right .report-btn {
+    margin-left: 15px; /* فاصله بین دکمه‌ها */
+}
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+#search-bar {
+    padding: 8px;
+    font-size: 16px;
+    width: 200px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button .material-icons {
+    font-size: 20px;  /* تنظیم اندازه آیکون */
+}
+
+/* استایل‌های عمومی */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* استایل‌های مخصوص صفحه موبایل */
+@media screen and (max-width: 768px) {
+    .comment-section {
+        margin: 10px;
+    }
+
+    #comment-form textarea {
+        width: 100%;
+        height: 100px;
+    }
+
+    .comment-section form div {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+/* استایل‌های مخصوص دسکتاپ */
+@media screen and (min-width: 769px) {
+    .comment-section {
+        width: 60%;
+        margin: 20px auto;
+    }
+
+    #comment-form textarea {
+        width: 70%;
+        height: 150px;
+    }
+}
+
+/* style.css */
+#status-report {
+    background-color: #222;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    opacity: 1; /* شروع با 100% شفافیت */
+    transition: opacity 2s ease-out; /* انیمیشن محو شدن */
+}
+
+.status-item {
+    margin: 5px 0;
+}
+
+#status-report.offline {
+    background-color: #f44336; /* قرمز برای آفلاین */
+}
+
+#status-report.online {
+    background-color: #4CAF50; /* سبز برای آنلاین */
+}
+
+.low-bandwidth-mode img {
+    filter: blur(5px);
+}
+
+.low-bandwidth-mode img {
+    filter: blur(5px);
+}
+
+.content {
+    max-width: 100%;
+    min-width: 320px;
+    padding: 10px;
+}
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* تغییر چیدمان در موبایل */
+    }
+}
+
+.low-bandwidth-mode img {
+    filter: blur(5px);
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #111;
+    color: white;
+}
+
+#chat-icon {
+    width: 60px;
+    height: 60px;
+    background: url('chat-icon.png') no-repeat center;
+    background-size: cover;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#chat-icon:hover { transform: scale(1.1); }
+
+#chat-container {
+    width: 320px;
+    height: 450px;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: rgba(20, 20, 20, 0.95);
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #00ffcc;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.hidden { transform: scale(0); }
+
+#chat-header {
+    background: linear-gradient(90deg, #00ffcc, #0088ff);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chat-box {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #222;
+}
+
+.message {
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.user { background: #007bff; align-self: flex-end; text-align: right; }
+
+.bot { background: #444; align-self: flex-start; text-align: left; }
+
+#input-box {
+    display: flex;
+    padding: 10px;
+    background: #333;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    background: #00ffcc;
+    color: black;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
