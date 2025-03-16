@@ -67,7 +67,7 @@ def js():
 
 @app.route('/optimize', methods=['POST'])
 def optimize_website():
-    website_optimizer = AdvancedWebsiteOptimizer("https://")  # URL سایت شما
+    website_optimizer = AdvancedWebsiteOptimizer("https://aiweb25.github.io")  # URL سایت شما
     result = website_optimizer.run_full_optimization()  # اجرای بهینه‌سازی
     return jsonify({"message": result})
 

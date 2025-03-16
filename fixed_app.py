@@ -261,7 +261,7 @@ def favicon():
 def style():
     return send_from_directory('.', 'style.css')
 
-@app.route('/js.js')
+@app.route('/script.js')
 def script():
     return send_from_directory('.', 'js.js')
 

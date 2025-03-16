@@ -179,7 +179,7 @@ class UltimateAIManager:
 # مسیر برای آنالیز سایت
 @app.route('/analyze', methods=['GET'])
 def analyze():
-    url = request.args.get('url')
+    url = request.args.get('https://aiweb25.github.io')
     if not url:
         return jsonify({"error": "No URL provided"}), 400
     manager = UltimateAIManager(url)
